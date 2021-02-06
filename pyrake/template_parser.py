@@ -1,59 +1,82 @@
+from pyrake.interpolated_string_parser import parse_interpolated_string
+from pyrake.template_primitives import create_dict, create_list, create_literal, create_string, create_interpolation
 EACH_SELECTOR = "$each "
+DEFAULT_CONFIG = {
+    'parse_string_term': lambda st: st,
+    'parse_list_term': lambda st: st
+}
 
 
-def parse_template(input):
-    parse_any(input)
+def parse_template(val, config=None):
+    config = config or DEFAULT_CONFIG
+    return parse_any(val, config)
 
 
-def parse_any(any):
-    if is_dict(any):
-        parse_dict(any)
-    elif is_list(any):
-        parse_list(any)
-    elif is_scalar(any):
-        parse_scalar(any)
-    else:
-        raise Exception(f"Unknown type {type(any)}")
+def parse_any(val, config):
+    if is_dict(val):
+        return parse_dict(val, config)
+    if is_list(val):
+        return parse_list(val, config)
+    if is_scalar(val):
+        return parse_scalar(val, config)
+
+    raise Exception(f"Unknown type {type(val)}")
 
 
-def is_dict(any):
-    return isinstance(any, dict)
+def is_dict(val):
+    return isinstance(val, dict)
 
 
-def is_list(any):
-    return isinstance(any, list)
+def is_list(val):
+    return isinstance(val, list)
 
 
-def is_scalar(any):
-    return (isinstance(any, str) or isinstance(any, int)
-            or isinstance(any, float) or isinstance(any, bool))
+def is_scalar(val):
+    return isinstance(val, (str, int, float, bool))
 
 
-def parse_dict(d):
-    return {'type': 'dict', 'fields': {k: parse_any(v) for k, v in d}}
+def parse_dict(dct, config):
+    return create_dict({k: parse_any(v, config) for (k, v) in dct.items()})
 
 
-def parse_list(l):
+def parse_list(lst, config):
     groups = []
     items = []
     term = None
-    for ele in l:
+    for ele in lst:
         if is_each_selector(ele):
-            if len(items) > 0:
+            if items:
                 groups.append({'term': term, 'items': items})
-            term = str(ele)[len(EACH_SELECTOR):]
+            term_str = str(ele)[len(EACH_SELECTOR):]
+            term = config['parse_list_term'](term_str)
             items = []
         else:
-            items.append(parse_any(ele))
+            items.append(parse_any(ele, config))
 
-    if len(items) > 0:
+    if items:
         groups.append({'term': term, 'items': items})
 
-    return {'type': 'list', 'groups': groups}
+    return create_list(groups)
 
 
-def is_each_selector(any):
-    return is_scalar(any) and str(any).startswith(EACH_SELECTOR)
+def is_each_selector(val):
+    return is_scalar(val) and str(val).startswith(EACH_SELECTOR)
 
 
-# def parse_scalar(s):
+def parse_scalar(val, config):
+    strval = str(val)
+    interpolations = parse_interpolated_string(strval)
+    parts = []
+    k = 0
+    for i in interpolations:
+        if i['start'] > k:
+            parts.append(create_literal(strval[k:i['start']]))
+
+        term = config['parse_string_term'](i['term'])
+        parts.append(create_interpolation(term, i['var_name']))
+        k = i['end'] + 1
+
+    if k < len(strval):
+        parts.append(create_literal(strval[k:]))
+
+    return create_string(parts)

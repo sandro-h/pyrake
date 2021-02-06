@@ -1,4 +1,4 @@
-def parse_interpolated_string(str):
+def parse_interpolated_string(string):
     parsed = []
 
     in_dollar = False
@@ -8,12 +8,12 @@ def parse_interpolated_string(str):
     left_bracket_char = None
     start = -1
 
-    ln = len(str)
+    string_len = len(string)
     k = 0
-    while k < ln:
-        c = str[k]
+    while k < string_len:
+        char = string[k]
         if in_term:
-            if is_right_bracket(c, left_bracket_char):
+            if is_right_bracket(char, left_bracket_char):
                 # Aaand done
                 in_term = False
                 term = {
@@ -24,24 +24,24 @@ def parse_interpolated_string(str):
                 }
                 parsed.append(term)
             else:
-                term += c
+                term += char
         elif in_dollar:
             # Check if variable
-            if is_variable_char(c):
-                var_name += c
-            elif is_left_bracket(c):
+            if is_variable_char(char):
+                var_name += char
+            elif is_left_bracket(char):
                 in_term = True
                 in_dollar = False
-                left_bracket_char = c
+                left_bracket_char = char
                 term = ''
             else:
                 # Invalid variable name, give up for this potential term.
                 in_dollar = False
-                if c == '$':
+                if char == '$':
                     # Invalid char was another dollar, so we have to analyze
                     # the potential term
                     k -= 1
-        elif c == '$':
+        elif char == '$':
             in_dollar = True
             var_name = ''
             start = k
@@ -50,15 +50,15 @@ def parse_interpolated_string(str):
     return parsed
 
 
-def is_right_bracket(c, left_bracket_char):
-    return (c == ')'
-            and left_bracket_char == '(') or (c == '}'
+def is_right_bracket(char, left_bracket_char):
+    return (char == ')'
+            and left_bracket_char == '(') or (char == '}'
                                               and left_bracket_char == '{')
 
 
-def is_left_bracket(c):
-    return c == '(' or c == '{'
+def is_left_bracket(char):
+    return char in ('(', '{')
 
 
-def is_variable_char(c):
-    return c.isalnum()
+def is_variable_char(char):
+    return char.isalnum()

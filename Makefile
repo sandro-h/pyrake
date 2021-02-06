@@ -14,12 +14,16 @@ install: build/install
 clean:
 	rm -rf venv
 	rm -f install
+	rm -rf */__pycache__
 
 autoformat: install
-	${ACTIVATE} && yapf -i *.py --style .yapfrc
+	${ACTIVATE} && yapf --in-place pyrake/*.py --style .yapfrc
+
+check-format: install
+	${ACTIVATE} && yapf --diff pyrake/*.py --style .yapfrc
 
 lint: install
-	${ACTIVATE} && pylint *.py
+	${ACTIVATE} && pylint pyrake/*.py
 
 test: install
 	${ACTIVATE} && pytest tests
