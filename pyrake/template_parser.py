@@ -1,5 +1,5 @@
 from pyrake.interpolated_string_parser import parse_interpolated_string
-from pyrake.template_primitives import create_dict, create_list, create_literal, create_string, create_interpolation
+from pyrake.template_primitives import create_dict, create_list, create_literal, create_scalar, create_interpolation
 EACH_SELECTOR = "$each "
 DEFAULT_CONFIG = {
     'parse_string_term': lambda st: st,
@@ -65,6 +65,23 @@ def is_each_selector(val):
 
 def parse_scalar(val, config):
     strval = str(val)
+
+    # Type conversion
+    type_conversion = None
+    if strval.startswith('$') and ':' in strval:
+        col_pos = strval.index(':')
+        conv = strval[1:col_pos]
+        if conv == 'int':
+            type_conversion = int
+        elif conv == 'float':
+            type_conversion = float
+        elif conv == 'bool':
+            type_conversion = bool
+
+        if conv is not None:
+            strval = strval[col_pos + 1:]
+
+    # String parts
     interpolations = parse_interpolated_string(strval)
     parts = []
     k = 0
@@ -79,4 +96,4 @@ def parse_scalar(val, config):
     if k < len(strval):
         parts.append(create_literal(strval[k:]))
 
-    return create_string(parts)
+    return create_scalar(parts, type_conversion)

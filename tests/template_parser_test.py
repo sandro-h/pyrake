@@ -9,7 +9,7 @@ def test_dict():
         'type': TemplateType.DICT,
         'fields': {
             'foo': {
-                'type': TemplateType.STRING,
+                'type': TemplateType.SCALAR,
                 'parts': [{
                     'type': TemplateType.INTERPOLATION,
                     'term': 'bar',
@@ -28,7 +28,7 @@ def test_list():
         'groups': [{
             'term': 'foo',
             'items': [{
-                'type': TemplateType.STRING,
+                'type': TemplateType.SCALAR,
                 'parts': [{
                     'type': TemplateType.INTERPOLATION,
                     'term': 'bar',
@@ -47,7 +47,7 @@ def test_multi_list():
         'groups': [{
             'term': 'foo',
             'items': [{
-                'type': TemplateType.STRING,
+                'type': TemplateType.SCALAR,
                 'parts': [{
                     'type': TemplateType.INTERPOLATION,
                     'term': 'bar',
@@ -57,7 +57,7 @@ def test_multi_list():
         }, {
             'term': 'gob',
             'items': [{
-                'type': TemplateType.STRING,
+                'type': TemplateType.SCALAR,
                 'parts': [{
                     'type': TemplateType.LITERAL,
                     'value': 'hi'
@@ -65,3 +65,24 @@ def test_multi_list():
             }]
         }]
     }
+
+
+def test_scalar_conversion():
+    cases = [
+        ('$int:$(bar)', int),
+        ('$float:$(bar)', float),
+        ('$bool:$(bar)', bool),
+    ]
+
+    for case in cases:
+        parsed = parse_template(case[0])
+
+        assert parsed == {
+            'type': TemplateType.SCALAR,
+            'convert_to': case[1],
+            'parts': [{
+                'type': TemplateType.INTERPOLATION,
+                'term': 'bar',
+                'var_name': '',
+            }]
+        }
