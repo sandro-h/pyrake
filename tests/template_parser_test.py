@@ -86,3 +86,42 @@ def test_scalar_conversion():
                 'var_name': '',
             }]
         }
+
+
+def test_scalar():
+    parsed = parse_template(
+        '$(td.title a)<br/>Source: $(td.title a | @href)<br/><a href="https://news.ycombinator.com/item?id=$(. | @id)">Comments</a>'
+    )
+
+    assert parsed == {
+        'type': TemplateType.SCALAR,
+        "parts": [
+            {
+                'type': TemplateType.INTERPOLATION,
+                'term': 'td.title a',
+                'var_name': '',
+            },
+            {
+                'type': TemplateType.LITERAL,
+                'value': '<br/>Source: '
+            },
+            {
+                'type': TemplateType.INTERPOLATION,
+                'term': 'td.title a | @href',
+                'var_name': '',
+            },
+            {
+                'type': TemplateType.LITERAL,
+                'value': '<br/><a href=\"https://news.ycombinator.com/item?id='
+            },
+            {
+                'type': TemplateType.INTERPOLATION,
+                'term': '. | @id',
+                'var_name': '',
+            },
+            {
+                'type': TemplateType.LITERAL,
+                'value': '">Comments</a>'
+            },
+        ]
+    }

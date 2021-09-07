@@ -1,0 +1,17 @@
+[
+    {
+        "url": "file://tests/testdata/gh_trending.html",
+        "template": {
+            "feedImage": "$(head link[rel=\"alternate icon\"] | @href)",
+            "items": [
+                "$each article.Box-row",
+                {
+                    "guid": "$(h1.lh-condensed a | @href)",
+                    "title": "$(h1.lh-condensed | text) - $(p.col-9 | text)",
+                    "link": "https://github.com$(h1.lh-condensed a | @href)",
+                    "content": "$(h1.lh-condensed | text) - $(p.col-9 | text)<br/>$(span[itemProp=programmingLanguage]) - $(a[href$=stargazers] | text) stars"
+                }
+            ]
+        }
+    }
+]

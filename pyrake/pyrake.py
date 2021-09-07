@@ -29,7 +29,12 @@ def run_definition(definition, is_last, execution):
                               config=TEMPLATE_PARSER_CONFIG)
     (resp, from_cache) = fetch(definition, execution)
     html = parse_html(resp)
-    output = evaluate_template(template, html, context=EVALUATION_CONFIG)
+    context = dict(EVALUATION_CONFIG)
+    context["helpers"] = {
+        k: compile(v, k, 'exec')
+        for k, v in definition.get('helpers', {}).items()
+    }
+    output = evaluate_template(template, html, context=context)
     if not from_cache:
         execution['used_cache_for_all'] = False
 

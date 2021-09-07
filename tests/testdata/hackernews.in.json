@@ -1,0 +1,21 @@
+[
+    {
+        "url": "file://tests/testdata/hackernews.html",
+        "template": {
+            "feedImage": "https://news.ycombinator.com/favicon.ico",
+            "items": [
+                "$each tr.athing",
+                {
+                    "guid": "$(td.title a | @href)",
+                    "title": "$(td.title a)$(td.title a | @href | helper norm_link | helper get_domain)",
+                    "link": "$(td.title a | @href | helper norm_link)",
+                    "content": "$(td.title a)<br/>Source: $(td.title a | @href)<br/><a href=\"https://news.ycombinator.com/item?id=$(. | @id)\">Comments</a>"
+                }
+            ]
+        },
+        "helpers": {
+            "get_domain": "from urllib.parse import urlparse; h = urlparse(input).hostname; output = f' ({h[4:]})' if h.startswith('www.') else f' ({h})'",
+            "norm_link": "output = 'https://news.ycombinator.com/' + input if input.startswith('item?') else input"
+        }
+    }
+]

@@ -78,7 +78,7 @@ def parse_scalar(val, config):
         elif conv == 'bool':
             type_conversion = bool
 
-        if conv is not None:
+        if type_conversion is not None:
             strval = strval[col_pos + 1:]
 
     # String parts

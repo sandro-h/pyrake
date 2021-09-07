@@ -1,3 +1,4 @@
+import json
 from pyrake.pyrake import resolve_props, run, download
 from .test_util import run_with_http_server
 
@@ -89,3 +90,33 @@ def test_run_with_download():
 <li><div id="name">Zappa</div><div id="age">41</div></li>
 <li><div id="name">Caroline</div><div id="age">59</div></li>
 """)
+
+
+def test_against_java_impl_gh_trending():
+    with open("tests/testdata/gh_trending.in.json", "r") as file:
+        definitions = json.load(file)
+
+    with open("tests/testdata/gh_trending.out.json", "r") as file:
+        expected_output = json.load(file)
+
+    output = run(definitions)['output']
+
+    # with open("tests/testdata/gh_trending.golden.json", "w") as file:
+    #     json.dump(output, file, sort_keys=True)
+
+    assert output == expected_output
+
+
+def test_against_java_impl_hackernews():
+    with open("tests/testdata/hackernews.in.json", "r") as file:
+        definitions = json.load(file)
+
+    with open("tests/testdata/hackernews.out.json", "r") as file:
+        expected_output = json.load(file)
+
+    output = run(definitions)['output']
+
+    # with open("tests/testdata/hackernews.golden.json", "w") as file:
+    #     json.dump(output, file, sort_keys=True)
+
+    assert output == expected_output

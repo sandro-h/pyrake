@@ -1,8 +1,9 @@
 from pyrake.template_primitives import is_scalar, is_dict, is_list, is_scalar_part_interpolation, is_scalar_part_literal
 
 DEFAULT_CONTEXT = {
-    'evaluate_scalar_term': lambda term, cursor: cursor[term],
-    'evaluate_list_term': lambda term, cursor: cursor[term]
+    'evaluate_scalar_term': lambda term, cursor, context: cursor[term],
+    'evaluate_list_term': lambda term, cursor: cursor[term],
+    'helpers': {}
 }
 
 
@@ -76,7 +77,8 @@ def evaluate_scalar_part(part, cursor, context):
         return str(part['value'])
     if is_scalar_part_interpolation(part):
         # TODO var_name is not handled right now
-        return str(context['evaluate_scalar_term'](part['term'], cursor))
+        return str(context['evaluate_scalar_term'](part['term'], cursor,
+                                                   context))
 
     raise Exception(f"Unknown scalar part {part}")
 

@@ -22,6 +22,8 @@ def parse_pipe(term):  # pylint: disable=too-many-return-statements
         return prev_pipe()
     if term == 'trim':
         return trim_pipe()
+    if term.startswith('helper'):
+        return helper_pipe(term[term.index(' ') + 1:].strip())
     raise Exception(f"Unknown pipe '{term}'")
 
 
@@ -30,7 +32,11 @@ def attribute_pipe(attr):
 
 
 def text_pipe():
-    return make_pipe(lambda ele: ele.string)
+    return make_pipe(text)
+
+
+def text(ele):
+    return trim(" ".join(ele.stripped_strings))
 
 
 def textonly_pipe():
@@ -95,9 +101,21 @@ def trim(string):
 
 def replace_pipe(search, replace):
     replace = re.sub(r'\$([0-9])', r'\\\1', replace)
-    print(replace)
     return make_pipe(lambda val: re.sub(search, replace, val))
 
 
-def make_pipe(func, handles_null=False):
-    return {'func': func, 'handles_null': handles_null}
+def helper_pipe(fname):
+    def run_helper_func(pipe_input, context):
+        helper_locals = {"input": pipe_input, "output": None}
+        exec(context["helpers"][fname], {}, helper_locals)  # pylint: disable=exec-used
+        return helper_locals["output"]
+
+    return make_pipe(run_helper_func, requires_context=True)
+
+
+def make_pipe(func, handles_null=False, requires_context=False):
+    return {
+        'func': func,
+        'handles_null': handles_null,
+        'requires_context': requires_context
+    }

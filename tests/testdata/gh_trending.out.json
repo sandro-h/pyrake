@@ -1,0 +1,155 @@
+{
+    "feedImage": "https://github.githubassets.com/favicons/favicon.png",
+    "items": [
+        {
+            "content": "TheAlgorithms / Python - All Algorithms implemented in Python<br/>Python - 116,851 stars",
+            "guid": "/TheAlgorithms/Python",
+            "link": "https://github.com/TheAlgorithms/Python",
+            "title": "TheAlgorithms / Python - All Algorithms implemented in Python"
+        },
+        {
+            "content": "g-make-it / IG_Trading_Algo_Scripts_Python - IG Trading Algos and Scripts in Python<br/>Python - 94 stars",
+            "guid": "/g-make-it/IG_Trading_Algo_Scripts_Python",
+            "link": "https://github.com/g-make-it/IG_Trading_Algo_Scripts_Python",
+            "title": "g-make-it / IG_Trading_Algo_Scripts_Python - IG Trading Algos and Scripts in Python"
+        },
+        {
+            "content": "donnemartin / system-design-primer - Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.<br/>Python - 143,449 stars",
+            "guid": "/donnemartin/system-design-primer",
+            "link": "https://github.com/donnemartin/system-design-primer",
+            "title": "donnemartin / system-design-primer - Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards."
+        },
+        {
+            "content": "willmcgugan / rich - Rich is a Python library for rich text and beautiful formatting in the terminal.<br/>Python - 28,638 stars",
+            "guid": "/willmcgugan/rich",
+            "link": "https://github.com/willmcgugan/rich",
+            "title": "willmcgugan / rich - Rich is a Python library for rich text and beautiful formatting in the terminal."
+        },
+        {
+            "content": "pittcsc / Summer2022-Internships - Collection of Summer 2022 tech internships!<br/>Python - 5,768 stars",
+            "guid": "/pittcsc/Summer2022-Internships",
+            "link": "https://github.com/pittcsc/Summer2022-Internships",
+            "title": "pittcsc / Summer2022-Internships - Collection of Summer 2022 tech internships!"
+        },
+        {
+            "content": "RasaHQ / rasa - \ud83d\udcac Open source machine learning framework to automate text- and voice-based conversations: NLU, dialogue management, connect to Slack, Facebook, and more - Create chatbots and voice assistants<br/>Python - 12,615 stars",
+            "guid": "/RasaHQ/rasa",
+            "link": "https://github.com/RasaHQ/rasa",
+            "title": "RasaHQ / rasa - \ud83d\udcac Open source machine learning framework to automate text- and voice-based conversations: NLU, dialogue management, connect to Slack, Facebook, and more - Create chatbots and voice assistants"
+        },
+        {
+            "content": "public-api-lists / public-api-lists - A collective list of free APIs for use in software and web development \ud83d\ude80 (Clone of https://github.com/public-apis/public-apis )<br/>Python - 3,335 stars",
+            "guid": "/public-api-lists/public-api-lists",
+            "link": "https://github.com/public-api-lists/public-api-lists",
+            "title": "public-api-lists / public-api-lists - A collective list of free APIs for use in software and web development \ud83d\ude80 (Clone of https://github.com/public-apis/public-apis )"
+        },
+        {
+            "content": "kivymd / KivyMD - KivyMD is a collection of Material Design compliant widgets for use with Kivy, a framework for cross-platform, touch-enabled graphical applications. https://youtube.com/c/KivyMD https://twitter.com/KivyMD https://habr.com/ru/users/kivymd https://stackoverflow.com/tags/kivymd<br/>Python - 1,226 stars",
+            "guid": "/kivymd/KivyMD",
+            "link": "https://github.com/kivymd/KivyMD",
+            "title": "kivymd / KivyMD - KivyMD is a collection of Material Design compliant widgets for use with Kivy, a framework for cross-platform, touch-enabled graphical applications. https://youtube.com/c/KivyMD https://twitter.com/KivyMD https://habr.com/ru/users/kivymd https://stackoverflow.com/tags/kivymd"
+        },
+        {
+            "content": "PaddlePaddle / PaddleOCR - Awesome multilingual OCR toolkits based on PaddlePaddle \uff08practical ultra lightweight OCR system, support 80+ languages recognition, provide data annotation and synthesis tools, support training and deployment among server, mobile, embedded and IoT devices\uff09<br/>Python - 15,092 stars",
+            "guid": "/PaddlePaddle/PaddleOCR",
+            "link": "https://github.com/PaddlePaddle/PaddleOCR",
+            "title": "PaddlePaddle / PaddleOCR - Awesome multilingual OCR toolkits based on PaddlePaddle \uff08practical ultra lightweight OCR system, support 80+ languages recognition, provide data annotation and synthesis tools, support training and deployment among server, mobile, embedded and IoT devices\uff09"
+        },
+        {
+            "content": "devanshbatham / Awesome-Bugbounty-Writeups - A curated list of bugbounty writeups (Bug type wise) , inspired from https://github.com/ngalongc/bug-bounty-reference<br/>Python - 2,281 stars",
+            "guid": "/devanshbatham/Awesome-Bugbounty-Writeups",
+            "link": "https://github.com/devanshbatham/Awesome-Bugbounty-Writeups",
+            "title": "devanshbatham / Awesome-Bugbounty-Writeups - A curated list of bugbounty writeups (Bug type wise) , inspired from https://github.com/ngalongc/bug-bounty-reference"
+        },
+        {
+            "content": "ldrolez / free-midi-chords - A collection of free MIDI chords and progressions ready to be used in your DAW, Akai MPC, or Roland MC-707/101<br/>Python - 248 stars",
+            "guid": "/ldrolez/free-midi-chords",
+            "link": "https://github.com/ldrolez/free-midi-chords",
+            "title": "ldrolez / free-midi-chords - A collection of free MIDI chords and progressions ready to be used in your DAW, Akai MPC, or Roland MC-707/101"
+        },
+        {
+            "content": "RangiLyu / nanodet - \u26a1 Super fast and lightweight anchor-free object detection model. \ud83d\udd25 Only 980 KB(int8) / 1.8MB (fp16) and run 97FPS on cellphone \ud83d\udd25<br/>Python - 3,256 stars",
+            "guid": "/RangiLyu/nanodet",
+            "link": "https://github.com/RangiLyu/nanodet",
+            "title": "RangiLyu / nanodet - \u26a1 Super fast and lightweight anchor-free object detection model. \ud83d\udd25 Only 980 KB(int8) / 1.8MB (fp16) and run 97FPS on cellphone \ud83d\udd25"
+        },
+        {
+            "content": "willmcgugan / textual - Textual is a TUI (Text User Interface) framework for Python inspired by modern web development.<br/>Python - 4,591 stars",
+            "guid": "/willmcgugan/textual",
+            "link": "https://github.com/willmcgugan/textual",
+            "title": "willmcgugan / textual - Textual is a TUI (Text User Interface) framework for Python inspired by modern web development."
+        },
+        {
+            "content": "wh1te909 / tacticalrmm - A remote monitoring & management tool, built with Django, Vue and Go.<br/>Python - 535 stars",
+            "guid": "/wh1te909/tacticalrmm",
+            "link": "https://github.com/wh1te909/tacticalrmm",
+            "title": "wh1te909 / tacticalrmm - A remote monitoring & management tool, built with Django, Vue and Go."
+        },
+        {
+            "content": "samuelcolvin / pydantic - Data parsing and validation using Python type hints<br/>Python - 7,377 stars",
+            "guid": "/samuelcolvin/pydantic",
+            "link": "https://github.com/samuelcolvin/pydantic",
+            "title": "samuelcolvin / pydantic - Data parsing and validation using Python type hints"
+        },
+        {
+            "content": "docker / compose - Define and run multi-container applications with Docker<br/>Python - 23,328 stars",
+            "guid": "/docker/compose",
+            "link": "https://github.com/docker/compose",
+            "title": "docker / compose - Define and run multi-container applications with Docker"
+        },
+        {
+            "content": "sqlmapproject / sqlmap - Automatic SQL injection and database takeover tool<br/>Python - 21,021 stars",
+            "guid": "/sqlmapproject/sqlmap",
+            "link": "https://github.com/sqlmapproject/sqlmap",
+            "title": "sqlmapproject / sqlmap - Automatic SQL injection and database takeover tool"
+        },
+        {
+            "content": "thu-ml / tianshou - An elegant PyTorch deep reinforcement learning library.<br/>Python - 3,684 stars",
+            "guid": "/thu-ml/tianshou",
+            "link": "https://github.com/thu-ml/tianshou",
+            "title": "thu-ml / tianshou - An elegant PyTorch deep reinforcement learning library."
+        },
+        {
+            "content": "rusty1s / pytorch_geometric - Graph Neural Network Library for PyTorch<br/>Python - 11,851 stars",
+            "guid": "/rusty1s/pytorch_geometric",
+            "link": "https://github.com/rusty1s/pytorch_geometric",
+            "title": "rusty1s / pytorch_geometric - Graph Neural Network Library for PyTorch"
+        },
+        {
+            "content": "microsoft / Swin-Transformer - This is an official implementation for \"Swin Transformer: Hierarchical Vision Transformer using Shifted Windows\".<br/>Python - 4,336 stars",
+            "guid": "/microsoft/Swin-Transformer",
+            "link": "https://github.com/microsoft/Swin-Transformer",
+            "title": "microsoft / Swin-Transformer - This is an official implementation for \"Swin Transformer: Hierarchical Vision Transformer using Shifted Windows\"."
+        },
+        {
+            "content": "tensorflow / models - Models and examples built with TensorFlow<br/>Python - 71,176 stars",
+            "guid": "/tensorflow/models",
+            "link": "https://github.com/tensorflow/models",
+            "title": "tensorflow / models - Models and examples built with TensorFlow"
+        },
+        {
+            "content": "techgaun / github-dorks - Find leaked secrets via github search<br/>Python - 1,518 stars",
+            "guid": "/techgaun/github-dorks",
+            "link": "https://github.com/techgaun/github-dorks",
+            "title": "techgaun / github-dorks - Find leaked secrets via github search"
+        },
+        {
+            "content": "mirumee / saleor - A modular, high performance, headless e-commerce platform built with Python, GraphQL, Django, and React.<br/>Python - 13,979 stars",
+            "guid": "/mirumee/saleor",
+            "link": "https://github.com/mirumee/saleor",
+            "title": "mirumee / saleor - A modular, high performance, headless e-commerce platform built with Python, GraphQL, Django, and React."
+        },
+        {
+            "content": "ZHKKKe / MODNet - A Trimap-Free Solution for Portrait Matting in Real Time<br/>Python - 1,885 stars",
+            "guid": "/ZHKKKe/MODNet",
+            "link": "https://github.com/ZHKKKe/MODNet",
+            "title": "ZHKKKe / MODNet - A Trimap-Free Solution for Portrait Matting in Real Time"
+        },
+        {
+            "content": "NVlabs / stylegan2-ada-pytorch - StyleGAN2-ADA - Official PyTorch implementation<br/>Python - 1,880 stars",
+            "guid": "/NVlabs/stylegan2-ada-pytorch",
+            "link": "https://github.com/NVlabs/stylegan2-ada-pytorch",
+            "title": "NVlabs / stylegan2-ada-pytorch - StyleGAN2-ADA - Official PyTorch implementation"
+        }
+    ]
+}

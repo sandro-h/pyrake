@@ -4,3 +4,4 @@ __pycache__/
 build/
 pyrake.egg-info/
 dist/
+*.golden.json
