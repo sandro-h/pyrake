@@ -11,6 +11,9 @@ build/install: venv requirements.txt
 
 install: build/install
 
+freeze:
+	${ACTIVATE} && pip freeze | sed '/pkg[-_]resources==0.0.0/d' > requirements.txt
+
 clean-install:
 	rm -rf venv install
 

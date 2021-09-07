@@ -8,7 +8,7 @@ setup(
     python_requires='>=3.6',
     description="pyrake",
     install_requires=[
-        'soupsieve==2.1', 'lxml==4.6.2', 'beautifulsoup4==4.9.3'
+        'soupsieve==2.1', 'lxml==4.6.3', 'beautifulsoup4==4.9.3'
     ],
     include_package_data=True,
     name='pyrake',
