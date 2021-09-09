@@ -36,6 +36,16 @@ def test_eval_attribute_pipe():
     assert res == {'foo': 'hello'}
 
 
+def test_eval_html_pipe():
+    html = parse_html('<div><b>hi</b><i>uffas</i></div>')
+    template = parse_template({'foo': '$(div | html)'},
+                              config=TEMPLATE_PARSER_CONFIG)
+
+    res = evaluate_template(template, html, context=EVALUATION_CONFIG)
+
+    assert res == {'foo': '<b>hi</b><i>uffas</i>'}
+
+
 def test_eval_till_pipe():
     html = parse_html('<div>hello there more stuff</div>')
     template = parse_template({'foo': '$(div | text | till there)'},

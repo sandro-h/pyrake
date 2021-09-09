@@ -16,6 +16,8 @@ def parse_pipe(term):  # pylint: disable=too-many-return-statements
         return text_pipe()
     if term == 'textonly':
         return textonly_pipe()
+    if term == 'html':
+        return html_pipe()
     if term == 'next':
         return next_pipe()
     if term == 'prev':
@@ -47,6 +49,10 @@ def textonly_pipe():
         return trim(''.join(direct_strings))
 
     return make_pipe(textonly)
+
+
+def html_pipe():
+    return make_pipe(lambda ele: ele.decode_contents())
 
 
 def till_pipe(substr):

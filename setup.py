@@ -14,6 +14,6 @@ setup(
     name='pyrake',
     packages=find_packages(include=['pyrake']),
     url='https://github.com/sandro-h/pyrake',
-    version='0.2.0',
+    version='0.2.1',
     zip_safe=False,
 )
